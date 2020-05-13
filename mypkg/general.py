@@ -1,17 +1,14 @@
-
-from pandas import DataFrame
 from mypkg import internal
 
-
 class Lesson(object):
-    """Represents a type helping to create lessons and methods associated with it
+    """Represents a Lesson object and methods associated with it
     
        Returns
        -------
-       type Lesson
+       Lesson object
     """
     def __init__(self, name, path):
-        """Creates self of a given name and content assosiated
+        """Creates self of a given name and loads it's content assosiated
         """
         assert type(name) == str
         assert type(path) == str
@@ -29,7 +26,6 @@ class Lesson(object):
     def start(self):
         """
         """
-        # Message example: "Welcome to konjunktionen lesson!"
         print("Welcome to", self.get_name(), "lesson!")
         print("You will have 2 attempt for each word. To stop at any time type 'stop()'. Good luck!")
         print("")
@@ -37,11 +33,11 @@ class Lesson(object):
         return (self.get_cont(), self.get_cont_option())
         
     def get_cont(self):
-        """Return self content instance. 
+        """Returns content of self instance. 
         
         Returns
         -----
-        pandas DataFrame
+        list
         """
         return self.cont.get_inst()
     
