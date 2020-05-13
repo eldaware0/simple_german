@@ -15,11 +15,11 @@ def main():
     cont_lesson = True
 
     # Lopping through DataFrame content
-    for index, row in lessn_cont.iterrows():
+    for row in lessn_cont:
 
         # Atempts are reset for each word/phrase
         attem_remain = lessn.get_attempts()
-
+        
         while True:
 
             # Get reply from a user
@@ -38,9 +38,10 @@ def main():
                 # If no attempts, print reply and ask next question:
                 if not attem_remain:
                     my_fn.print_wcolor("red", "Reply is: " + row[antwort])
-                    if row[beishpiel] == '':
-                        my_fn.print_wcolor("red", "Example: " + row[beishpiel])
+                    if not row[beishpiel] == '':
+                        my_fn.print_wcolor("green", "Example: " + row[beishpiel])
                     break
+                
                 # If attempts available, populate repeat list & repeat question:
                 else:
                     lessn.add_2_repeat_list((row[antwort]))
